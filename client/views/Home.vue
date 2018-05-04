@@ -122,5 +122,11 @@ export default {
   justify-content: center;
 }
 
+.VueCarousel-navigation-button, .VueCarousel-navigation-next {
+  display: inline-block;
+  height: 300px;
+
+}
+
 
 </style>

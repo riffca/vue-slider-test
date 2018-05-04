@@ -1,6 +1,7 @@
 <template>
   <section class="VueCarousel">
     <div class="VueCarousel-wrapper"
+      @click="handleNavigation"
       ref="VueCarousel-wrapper">
       <div ref="VueCarousel-inner"
         class="VueCarousel-inner"
@@ -494,6 +495,9 @@ export default {
      */
 
     onEnd(e) {
+      let currentMouseUp = window.PointerEvent ? "mouseup" : "pointerup"
+      let currentMouseMove = window.PointerEvent ? "mousemove" : "pointermove"
+
       // compute the momemtum speed
       const eventPosX = this.isTouch ? e.changedTouches[0].clientX : e.clientX;
       const deltaX = this.dragStartX - eventPosX;
@@ -518,12 +522,12 @@ export default {
 
       // clear events listeners
       document.removeEventListener(
-        this.isTouch ? "touchend" : "mouseup",
+        this.isTouch ? "touchend" : currentMouseUp,
         this.onEnd,
         true
       );
       document.removeEventListener(
-        this.isTouch ? "touchmove" : "mousemove",
+        this.isTouch ? "touchmove" : currentMouseMove,
         this.onDrag,
         true
       );
@@ -660,6 +664,7 @@ export default {
 .VueCarousel-wrapper {
   width: 100%;
   position: relative;
+  z-index: 2;
   overflow: hidden;
 }
 
