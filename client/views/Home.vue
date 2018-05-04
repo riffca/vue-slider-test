@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide } from 'root/components/Carousel/index.js';
 
 export default {
   components: { Carousel, Slide },

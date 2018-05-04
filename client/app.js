@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import VueCarousel from 'vue-carousel';
 import { sync } from 'vuex-router-sync'
+import VueCarousel from './components/Carousel/index.js'
 import App from './components/App'
 import router from './router'
 import store from './store'
